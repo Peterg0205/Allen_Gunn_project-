@@ -3,8 +3,13 @@
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
 
+-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- Link to schema: https://app.quickdatabasediagrams.com/#/d/br8ib9
+-- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
+
+
 CREATE TABLE "Census_api" (
-    "GEOID" INT   NOT NULL,
+    "GEOID" INT   NOT NULL PRIMARY KEY,
     "State_Fips" INT   NOT NULL,
     "State" VARCHAR   NOT NULL,
     "State_Abbr" VARCHAR   NOT NULL,
@@ -12,6 +17,7 @@ CREATE TABLE "Census_api" (
     "School_Dist_Name" VARCHAR   NOT NULL,
     "Ages_5-17_in_Families_in_Poverty,Count_Est" INT   NOT NULL,
     "YEAR" INT   NOT NULL
+
 );
 
 CREATE TABLE "Overweight_data" (
@@ -32,6 +38,6 @@ CREATE TABLE "Overweight_data" (
     "Race" VARCHAR   NOT NULL,
     "Grade" VARCHAR   NOT NULL,
     "GeoLocation" INT   NOT NULL,
-    "LocationId" INT   NOT NULL,
+    "LocationId" INT   NOT NULL Primary key,
     "StratificationType" VARCHAR   NOT NULL
 );
