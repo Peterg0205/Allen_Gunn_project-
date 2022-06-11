@@ -197,22 +197,28 @@ https://api.census.gov/data/timeseries/poverty/saipe/schdist?get=GEOID,SD_NAME,S
 ![image](https://user-images.githubusercontent.com/101233216/173202892-9035a7f3-e981-457d-96fc-43d44dd23dbc.png)
 <br>
 <h4><b> Importing Sqlalchemy  </b></h4>
-<br>--# Use for following depencies for Sqlalchemy 
-<br> ![image](https://user-images.githubusercontent.com/101233216/173203151-2a840061-1225-4afa-99fa-4f655a29580e.png)
+<br>--# Use for following depencies for Sqlalchemy  
+
+<br>![Screen Shot 2022-06-11 at 4 45 37 PM](https://user-images.githubusercontent.com/101233216/173204531-ec2417da-2658-4506-8975-163da327d853.png)
+
 <br><br>
 <h4><b> Import CSV  </b></h4>
 <br> 1. -- Import dependines from cell 2 
 <br> 2. --Create variable to read in csv from cell 3
 <br> 3. -- Convert csv to dataframe using .read from cell 4 
 <br>  
+
  ![image](https://user-images.githubusercontent.com/101233216/173203290-55a7a8e3-122a-44c2-8751-39f8c2cfaab3.png)
+ 
 <br>
 <h4><b> Dataframe to Database transfer  </b></h4>
 <br> 
 <br>--# Once database is transfered it should populate on left side of pgAdmin
 <br> --Navigate to tables to ensure tables in database were create properly
 <br> 
+
 ![image](https://user-images.githubusercontent.com/101233216/173203350-9e2f7223-4ec9-4d7c-8c35-c273f2a6ff82.png)
+
 <br>  
 <br>
   
