@@ -212,6 +212,8 @@ https://api.census.gov/data/timeseries/poverty/saipe/schdist?get=GEOID,SD_NAME,S
 
 List your collaborators:
 <br>Hannah Allen - https://github.com/hanniecodes<br>
+<br>Peter Gunn - https://github.com/Peterg0205<br> 
+
 
 If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 
