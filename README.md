@@ -29,58 +29,59 @@ If your README is long, add a table of contents to make it easy for users to fin
 
 ## Installation
 
-<b> API installation</b>
+<h4><b> API installation</b></h4>
 <br>
 1.	Sign up for a free API key with the census website https://api.census.gov/data/key_signup.html.
 2.	Utilize this url to query data: --https://api.census.gov/data/timeseries/poverty/saipe/schdist?get=GEOID,SD_NAME,SAEPOV5_17RV_PT&for=school+district+(Secondary)&YEAR=2017
-a.	The API url used to extract data was built using the Census variable dictionary. https://api.census.gov/data/timeseries/poverty/saipe/variables.html 
-b.	Should other variables be necessary copy them from the variable dictionary behind SAEPOV5_17RV_PT before the &.
+--The API url used to extract data was built using the Census variable dictionary. https://api.census.gov/data/timeseries/poverty/saipe/variables.html 
+--Should other variables be necessary copy them from the variable dictionary behind SAEPOV5_17RV_PT before the &.
 1.	In an IPYB file in Jupyther Notebook <b>Utilized the following dependencies: Pandas, requests, us, JSON and pprint. </b>
-a.	import pandas as pd 
-b.	import requests 
-c.	import us
-d.	import json
-e.	from pprint import pprint 
-f.	# api keys
-g.	from api_keys import census
+<br>--import pandas as pd 
+<br>--import requests 
+<br>--import us
+<br>--import json
+<br>--from pprint import pprint 
+<br>--# api keys
+<br>--from api_keys import census
 2.	Once the url was created it was queried with a Census API key. Create a configuration file that will be added to your Gitnore for your API key. Here we created a file called api_keys.py and imported our ‘census’ API key as a dependency. 
 3.	 Once we requested the data from the API, JSON was used to translate the data. Using the following commands: 
-a.	# Build query URL
-b.	query_url = url + "&key=" + census 
-c.	# Get poverty data
-d.	pov_response = requests.get(query_url)
-e.	pov_json = pov_response.json()
+<br>--# Build query URL
+<br>--query_url = url + "&key=" + census 
+<br>--# Get poverty data
+<br>--pov_response = requests.get(query_url)
+<br>--pov_json = pov_response.json()
 4.	The data was inputted into Pandas in an almost CSV-like format with the headers of the dataset as the first list within the dataset. This was observable by calling the first row using pov_json[0] (the name of our JSONified data). 
 5.	This allowed us to input the dataset input the data into a data frame using the pd.DataFrame function. 
-a.	pov_df=pd.DataFrame(columns=pov_json[0], data=pov_json)
+<br>--pov_df=pd.DataFrame(columns=pov_json[0], data=pov_json)
 6.	Once in a data frame, we dropped the first row so that the headers would not be duplicated and reset the index to reflect that. 
-a.	pov_df.drop(index=pov_df.index[0], axis=0,inplace=True)
-b.	pov_df.reset_index(inplace=True, drop=True)
+<br>--pov_df.drop(index=pov_df.index[0], axis=0,inplace=True)
+<br>--pov_df.reset_index(inplace=True, drop=True)
 7.	The next step was to clean the data further and make it useable. The state column did not have string variables but only the State FIPS code in the ‘state’ column. Using the US python dictionary the FIPS code was translated to create both the ‘State’ and ‘State Abbreviation’ columns. 
-a.	fips_to_name = us.states.mapping("fips", "name")
-b.	pov_df["State"] = pov_df["state"].map(fips_to_name)
-c.	fips_to_name = us.states.mapping("fips", "abbr")
-d.	pov_df["State Abbr"] = pov_df["state"].map(fips_to_name)
+<br>--fips_to_name = us.states.mapping("fips", "name")
+<br>--pov_df["State"] = pov_df["state"].map(fips_to_name)
+<br>--fips_to_name = us.states.mapping("fips", "abbr")
+<br>--pov_df["State Abbr"] = pov_df["state"].map(fips_to_name)
 8.	<i>(OPTIONAL Renaming columns)</i>The ‘state’ column was renamed to be ‘State Fips’.The 'SAEPOV5_17RV_PT' column was renamed to be 'Ages 5-17 in Families in Poverty, Count Est'. The 'SD_NAME' column was renamed to be 'School Dist Name'. Lastly, the 'school district (secondary)' column was renamed to be ‘School Dist Code'.
-a.	# Rename state colomn to be State Fips code
-b.	pov_df.rename(columns={'state':'State Fips'}, inplace = True)
-c.	# Rename Census data code to appropriate name
-d.	pov_df.rename(columns={'SAEPOV5_17RV_PT':'Ages 5-17 in Families in Poverty, Count Est'}, inplace = True)
-e.	# Rename SD to School District Name
-f.	pov_df.rename(columns={'SD_NAME':'School Dist Name'}, inplace = True)
-g.	# Rename school district (secondary) to School District Code
-h.	pov_df.rename(columns={'school district (secondary)':'School Dist Code'}, inplace = True)
+<br>--# Rename state colomn to be State Fips code
+<br>--pov_df.rename(columns={'state':'State Fips'}, inplace = True)
+<br>--# Rename Census data code to appropriate name
+<br>--pov_df.rename(columns={'SAEPOV5_17RV_PT':'Ages 5-17 in Families in Poverty, Count Est'}, inplace = True)
+<br>--# Rename SD to School District Name
+<br>--pov_df.rename(columns={'SD_NAME':'School Dist Name'}, inplace = True)
+<br>--# Rename school district (secondary) to School District Code
+<br>--pov_df.rename(columns={'school district (secondary)':'School Dist Code'}, inplace = True)
 9.	<i>(OPTIONAL Reordering columns)</i>The columns were then reorganized to put location data together and school district data together. 
-a.	# Reorder columns 
-b.	pov_df=pov_df[['GEOID','State Fips','State','State Abbr','School Dist Code','School Dist Name','Ages 5-17 in Families in Poverty, Count Est','YEAR']]
-c.	pov_df
+<br>--# Reorder columns 
+<br>--pov_df=pov_df[['GEOID','State Fips','State','State Abbr','School Dist Code','School Dist Name','Ages 5-17 in Families in Poverty, Count Est','YEAR']]
+a.	pov_df
 10.	 The next step was to clean duplicates and drop null values if there were any. Using the following code: 
-a.	pov_df.drop_duplicates(subset=None, keep='first', inplace=False, ignore_index=False)
-b.	pov_df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)
+<br>--pov_df.drop_duplicates(subset=None, keep='first', inplace=False, ignore_index=False)
+<br>--pov_df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)
 11.	This left the data frame with 402 entries. For the purpose of this project we sampled 100 rows, reset the index, then saved the data into a CSV titled “School_Poverty_data2017.csv”.
-a.	new_pov_df= pov_df.sample(100)
-b.	new_pov_df.reset_index(inplace=True, drop=True)
-c.	new_pov_df.to_csv("School_Poverty_data2017.csv",index=False, header=True)
+<br>--new_pov_df= pov_df.sample(100)
+<br>--new_pov_df.reset_index(inplace=True, drop=True)
+<br>--new_pov_df.to_csv("School_Poverty_data2017.csv",index=False, header=True)
+
 
 
 ## Usage
