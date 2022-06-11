@@ -172,12 +172,15 @@ https://api.census.gov/data/timeseries/poverty/saipe/schdist?get=GEOID,SD_NAME,S
 <h4><b> Install depencies for API  </b></h4>
   
 <br>--# create addtional config file for API key  
+<br>
 <br>--Select new in the top right hand corner
 <br>-- Select "Text file" 
+<br>
 ![Screen Shot 2022-06-11 at 3 27 52 PM](https://user-images.githubusercontent.com/101233216/173202945-7d8acc7b-942d-47e6-abe7-7f8b3f4d348b.png)
 <br>
 <br>--# Create varibale for API key 
 <br> --Input your postress password
+<br>
 ![image](https://user-images.githubusercontent.com/101233216/173202992-5986ece9-136b-450d-9293-7d349d0be805.png)  
 <br>
 <br>--#import decepecies from cell 1
@@ -189,7 +192,20 @@ https://api.census.gov/data/timeseries/poverty/saipe/schdist?get=GEOID,SD_NAME,S
 <br>--# Use for following depencies for Sqlalchemy 
 <br> ![image](https://user-images.githubusercontent.com/101233216/173203151-2a840061-1225-4afa-99fa-4f655a29580e.png)
 <br>
-
+<h4><b> Import CSV  </b></h4>
+<br> 1. -- Import dependines from cell 2 
+<br> 2. --Create variable to read in csv from cell 3
+<br> 3. -- Convert csv to dataframe using .read from cell 4 
+<br>  
+ ![image](https://user-images.githubusercontent.com/101233216/173203290-55a7a8e3-122a-44c2-8751-39f8c2cfaab3.png)
+<br>
+<h4><b> Dataframe to Database transfer  </b></h4>
+<br> 
+<br>--# Once transfer database should populate on left side of pgAdmin
+<br> --Navigate to tables to ensure tables in database were create properly
+<br> 
+![image](https://user-images.githubusercontent.com/101233216/173203350-9e2f7223-4ec9-4d7c-8c35-c273f2a6ff82.png)
+<br>  
   
   
 ## Credits
