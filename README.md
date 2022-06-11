@@ -37,7 +37,7 @@ If your README is long, add a table of contents to make it easy for users to fin
 <br> --
 https://api.census.gov/data/timeseries/poverty/saipe/schdist?get=GEOID,SD_NAME,SAEPOV5_17RV_PT&for=school+district+(Secondary)&YEAR=2017
 <br>--<i>The API url used to extract data was built using the Census variable dictionary. </i>https://api.census.gov/data/timeseries/poverty/saipe/variables.html 
---Should other variables be necessary copy them from the variable dictionary behind SAEPOV5_17RV_PT before the &.
+<br>--Should other variables be necessary copy them from the variable dictionary behind SAEPOV5_17RV_PT before the &.
 <br>
 1.	In an IPYB file in Jupyther Notebook <b>Utilized the following dependencies: Pandas, requests, us, JSON and pprint. </b>
 <br>--import pandas as pd 
