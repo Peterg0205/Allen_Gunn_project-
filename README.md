@@ -87,7 +87,7 @@ https://api.census.gov/data/timeseries/poverty/saipe/schdist?get=GEOID,SD_NAME,S
 <h4><b> CSV Dataset installation</b></h4>
 1. Use free dataset on Kaggle site https://www.kaggle.com/datasets/raylo168/dash-yrbss-hs-2017?resource=download&select=Obesity+Overweight+and+Weight+Control.csv
 <br>
-2. Create IPYB in Jupyter Notebooking, import all dependencies to clean, import, and manipulate data. 
+2. Create IPYB in Jupyter Notebook, import all dependencies to clean, import, and manipulate data. 
 <br>--import pandas as pd
 <br>--from sqlalchemy import create_engine
 <br>--from sqlalchemy import create_engine
