@@ -169,8 +169,29 @@ https://api.census.gov/data/timeseries/poverty/saipe/schdist?get=GEOID,SD_NAME,S
 
 ## Usage
 
+<h4><b> Install depencies for API  </b></h4>
+  
+<br>--# create addtional config file for API key  
+<br>--Select new in the top right hand corner
+<br>-- Select "Text file" 
+![Screen Shot 2022-06-11 at 3 27 52 PM](https://user-images.githubusercontent.com/101233216/173202945-7d8acc7b-942d-47e6-abe7-7f8b3f4d348b.png)
+<br>
+<br>--# Create varibale for API key 
+<br> --Input your postress password
+![image](https://user-images.githubusercontent.com/101233216/173202992-5986ece9-136b-450d-9293-7d349d0be805.png)  
+<br>
+<br>--#import decepecies from cell 1
+<br>--Create varibles to import API into Jupyter Notebook 
+<br>
+![image](https://user-images.githubusercontent.com/101233216/173202892-9035a7f3-e981-457d-96fc-43d44dd23dbc.png)
+<br>
+<h4><b> Importing Sqlalchemy  </b></h4>
+<br>--# Use for following depencies for Sqlalchemy 
+<br> ![image](https://user-images.githubusercontent.com/101233216/173203151-2a840061-1225-4afa-99fa-4f655a29580e.png)
+<br>
 
-
+  
+  
 ## Credits
 
 List your collaborators:
