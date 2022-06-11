@@ -94,56 +94,55 @@ https://api.census.gov/data/timeseries/poverty/saipe/schdist?get=GEOID,SD_NAME,S
 <br>--import requests
 <br>--import json
 <br>
-
-
-
-
-## Usage
-
-<h4><b> CSV Dataset Usage</b></h4>
-1. Create varibale to read in dataset into Jupyter Notebook. You must show the location of csv from the folder on your computer. 
+3. Create varibale to read in dataset into Jupyter Notebook. You must show the location of csv from the folder on your computer. 
 <br>--clean_data = "Resources/Obesity Overweight and Weight Control Final Clean.csv"
 <br>
-2. Convert csv dataset into a dataframe. This will allow you to manipulate data as needed. 
+4. Convert csv dataset into a dataframe. This will allow you to manipulate data as needed. 
 <br>-clean_data_df = pd.read_csv("Obesity Overweight and Weight Control Final Clean.csv")
 <br>
-3. First step in cleaning the data is to remove all null values using the .dropna function. 
+5. First step in cleaning the data is to remove all null values using the .dropna function. 
 <br>
 <br>--#Drop all null values
 <br>--dropna_data = clean_data_df.dropna()
 <br>--#check to ensure all null values were removed
 <br>--dropna_data.head(5)
 <br>
-4. Once dataframe no longer has null values create a sandbox dataframe to further work with the data. This allows you to alter the data without affecting the integrity of the orginal dataframe. 
+6. Once dataframe no longer has null values create a sandbox dataframe to further work with the data. This allows you to alter the data without affecting the integrity of the orginal dataframe. 
 <br>
 <br>--Creating Sandbox dataframe
 <br>--copy_df = dropna_data.copy()
 <br>--copy_df
 <br>
-4. The orginal dataset has a abundance of data to use so create a small sample size. The key advantage of a sample is that less data is needed to be collected and analyse. While still resulting in an accurate represenation of the dataset as a whole. Also, the dataset was much to large to export.
+7. The orginal dataset has a abundance of data to use so create a small sample size. The key advantage of a sample is that less data is needed to be collected and analyse. While still resulting in an accurate represenation of the dataset as a whole. Also, the dataset was much to large to export.
 <br>
 #Create sample using .sample function. 
 #Choose the disire size of sample(We choose 100 in this case) 
 <br>--copy_df.sample(100, replace = True)
 <br>--copy_df
 <br>
-6.In addition to dropping null values to clean data you also must ensure there are no duplicate values in the data. 
+8.In addition to dropping null values to clean data you also must ensure there are no duplicate values in the data. 
 <br>
 <br>--#Remove Duplicates
 --<br>copy_df.drop_duplicates(subset=None,keep='first', inplace= False, ignore_index= False)
 --# Display dataframe to check if function worked. 
 --new_copy_df
 <br>
-7. After cleaning is finished, set the index to reflect the number of rows in dataframe. 
+9. After cleaning is finished, set the index to reflect the number of rows in dataframe. 
 <br>
 #Reset Index 
 --new_copy_df.reset_index(inplace=True, drop=True)
 --new_copy_df
 <br>
-8. Last step is into convert dataframe back into a csv so it can be exported. 
+10. Last step is into convert dataframe back into a csv so it can be exported. 
 <br>
 --#Dataframe to csv 
 --new_copy_df.to_csv('Obesity Overweight and Weight Control Final Clean.csv')
+
+
+
+
+## Usage
+
 
 
 ## Credits
