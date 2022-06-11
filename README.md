@@ -33,10 +33,10 @@ If your README is long, add a table of contents to make it easy for users to fin
 <br>
 1.	Sign up for a free API key with the census website https://api.census.gov/data/key_signup.html.
 <br>
-2.	Utilize this url to query data: --
-<br>
+2.	Utilize this url to query data:
+<br> --
 https://api.census.gov/data/timeseries/poverty/saipe/schdist?get=GEOID,SD_NAME,SAEPOV5_17RV_PT&for=school+district+(Secondary)&YEAR=2017
-<br>--The API url used to extract data was built using the Census variable dictionary. https://api.census.gov/data/timeseries/poverty/saipe/variables.html 
+<br>--<i>The API url used to extract data was built using the Census variable dictionary. </i>https://api.census.gov/data/timeseries/poverty/saipe/variables.html 
 --Should other variables be necessary copy them from the variable dictionary behind SAEPOV5_17RV_PT before the &.
 <br>
 1.	In an IPYB file in Jupyther Notebook <b>Utilized the following dependencies: Pandas, requests, us, JSON and pprint. </b>
@@ -56,12 +56,12 @@ https://api.census.gov/data/timeseries/poverty/saipe/schdist?get=GEOID,SD_NAME,S
 <br>--pov_response = requests.get(query_url)
 <br>--pov_json = pov_response.json()<br>
 4.	The data was inputted into Pandas in an almost CSV-like format with the headers of the dataset as the first list within the dataset. This was observable by calling the first row using pov_json[0] (the name of our JSONified data). <br>
-5.	This allowed us to input the dataset input the data into a data frame using the pd.DataFrame function. <br>
+5.	This allowed us to input the dataset input the data into a data frame using the pd.DataFrame function. 
 <br>--pov_df=pd.DataFrame(columns=pov_json[0], data=pov_json) <br>
-6.	Once in a data frame, we dropped the first row so that the headers would not be duplicated and reset the index to reflect that. <br>
+6.	Once in a data frame, we dropped the first row so that the headers would not be duplicated and reset the index to reflect that. 
 <br>--pov_df.drop(index=pov_df.index[0], axis=0,inplace=True)
 <br>--pov_df.reset_index(inplace=True, drop=True) <br>
-7.	The next step was to clean the data further and make it useable. The state column did not have string variables but only the State FIPS code in the ‘state’ column. Using the US python dictionary the FIPS code was translated to create both the ‘State’ and ‘State Abbreviation’ columns. <br>
+7.	The next step was to clean the data further and make it useable. The state column did not have string variables but only the State FIPS code in the ‘state’ column. Using the US python dictionary the FIPS code was translated to create both the ‘State’ and ‘State Abbreviation’ columns. 
 <br>--fips_to_name = us.states.mapping("fips", "name")
 <br>--pov_df["State"] = pov_df["state"].map(fips_to_name)
 <br>--fips_to_name = us.states.mapping("fips", "abbr")
