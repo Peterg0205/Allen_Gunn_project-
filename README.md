@@ -15,9 +15,7 @@ This goes hand and hand with the Obama school nutrituion policy estashblished in
 - What problem does it solve?
 This database provides access to school district data that has estimates of youth in poverty count by state for a random sample of 100 districts in the US. Additionally, this database includes data that has the 2017 Obesity risk rate by state, race, grade, and gender for youth aged 5-17. This database has the appropriate data needed to observe the school districts that have the most youth in poverty by count and the risk rate for obesity for youths in 2017 by state. 
 - What did you learn?
-We learned that the Census API is accessible for all for free and the Youth Behavioral Surveillance System is accessible to the public by the CDC.  
-
-
+We learned that the Census API is accessible for all for free and the Youth Behavioral Surveillance System is accessible to the public by the CDC. We also learned that you can pull data from any source combine, condense, and analyze data all in one place. In this case we pulled a dataset from kaggle as well as from Cenus API cleaned and then imported it into a database for further analyzation. From there you may join, create relations, and breadown tables further. This is exetremely useful for client and stakeholder visibility. 
 ## Table of Contents (Optional)
 
 If your README is long, add a table of contents to make it easy for users to find what they need.
@@ -67,7 +65,7 @@ https://api.census.gov/data/timeseries/poverty/saipe/schdist?get=GEOID,SD_NAME,S
 <br>--fips_to_name = us.states.mapping("fips", "abbr")
 <br>--pov_df["State Abbr"] = pov_df["state"].map(fips_to_name) <br>
 8.	<i>(OPTIONAL Renaming columns)</i>The ‘state’ column was renamed to be ‘State Fips’.The 'SAEPOV5_17RV_PT' column was renamed to be 'Ages 5-17 in Families in Poverty, Count Est'. The 'SD_NAME' column was renamed to be 'School Dist Name'. Lastly, the 'school district (secondary)' column was renamed to be ‘School Dist Code'. <br>
-<br>--# Rename state colomn to be State Fips code
+--# Rename state colomn to be State Fips code
 <br>--pov_df.rename(columns={'state':'State Fips'}, inplace = True)
 <br>--# Rename Census data code to appropriate name
 <br>--pov_df.rename(columns={'SAEPOV5_17RV_PT':'Ages 5-17 in Families in Poverty, Count Est'}, inplace = True)
@@ -86,17 +84,67 @@ https://api.census.gov/data/timeseries/poverty/saipe/schdist?get=GEOID,SD_NAME,S
 <br>--new_pov_df.reset_index(inplace=True, drop=True)
 <br>--new_pov_df.to_csv("School_Poverty_data2017.csv",index=False, header=True) <br>
 
+<h4><b> CSV Dataset installation</b></h4>
+1. Use free dataset on Kaggle site https://www.kaggle.com/datasets/raylo168/dash-yrbss-hs-2017?resource=download&select=Obesity+Overweight+and+Weight+Control.csv
+<br>
+2. Create IPYB in Jupyter Notebooking, import all dependencies to clean, import, and manipulate data. 
+<br>--import pandas as pd
+<br>--from sqlalchemy import create_engine
+<br>--from sqlalchemy import create_engine
+<br>--import requests
+<br>--import json
+<br>
+
+
 
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+<h4><b> CSV Dataset Usage</b></h4>
+1. Create varibale to read in dataset into Jupyter Notebook. You must show the location of csv from the folder on your computer. 
+<br>--clean_data = "Resources/Obesity Overweight and Weight Control Final Clean.csv"
+<br>
+2. Convert csv dataset into a dataframe. This will allow you to manipulate data as needed. 
+<br>-clean_data_df = pd.read_csv("Obesity Overweight and Weight Control Final Clean.csv")
+<br>
+3. First step in cleaning the data is to remove all null values using the .dropna function. 
+<br>
+<br>--#Drop all null values
+<br>--dropna_data = clean_data_df.dropna()
+<br>--#check to ensure all null values were removed
+<br>--dropna_data.head(5)
+<br>
+4. Once dataframe no longer has null values create a sandbox dataframe to further work with the data. This allows you to alter the data without affecting the integrity of the orginal dataframe. 
+<br>
+<br>--Creating Sandbox dataframe
+<br>--copy_df = dropna_data.copy()
+<br>--copy_df
+<br>
+4. The orginal dataset has a abundance of data to use so create a small sample size. The key advantage of a sample is that less data is needed to be collected and analyse. While still resulting in an accurate represenation of the dataset as a whole. Also, the dataset was much to large to export.
+<br>
+#Create sample using .sample function. 
+#Choose the disire size of sample(We choose 100 in this case) 
+<br>--copy_df.sample(100, replace = True)
+<br>--copy_df
+<br>
+6.In addition to dropping null values to clean data you also must ensure there are no duplicate values in the data. 
+<br>
+<br>--#Remove Duplicates
+--<br>copy_df.drop_duplicates(subset=None,keep='first', inplace= False, ignore_index= False)
+--# Display dataframe to check if function worked. 
+--new_copy_df
+<br>
+7. After cleaning is finished, set the index to reflect the number of rows in dataframe. 
+<br>
+#Reset Index 
+--new_copy_df.reset_index(inplace=True, drop=True)
+--new_copy_df
+<br>
+8. Last step is into convert dataframe back into a csv so it can be exported. 
+<br>
+--#Dataframe to csv 
+--new_copy_df.to_csv('Obesity Overweight and Weight Control Final Clean.csv')
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
 
 ## Credits
 
