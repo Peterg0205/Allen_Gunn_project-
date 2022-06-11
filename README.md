@@ -13,13 +13,13 @@ The next step was to clean the data further and make it useable for the client. 
 Project Plan: We are extracting Obesity Overweight and Weight Control Data from the 2017 Youth Behavioral Surveillance System data from Kaggle and comparing it to poverty data for US School Districts from the 2017 census API.
 
 - What was your motivation? 
-In the United States of America, obesity is often linked to food deserts, resource-scarce areas, and poverty. This is especially crucial when it comes to the youth aged 5-17 who often rely on school for meals. We wanted to provide a dataset that would allow the relationship between youth in poverty in the school district of different states and obesity, overweight, and weight control data. 
-- Why did you build this project?
+In the United States of America, obesity is often linked to food deserts, resource-scarce areas, and poverty. This is especially crucial when it comes to the youth aged 5-17 who often rely on school for meals. We wanted to provide a dataset that would allow the relationship between youth in poverty in the school district of different states and obesity, overweight, and weight control data.
 We wanted to provide a database to a client who wants to compare Obesity Overweight and Weight Control data from the  Youth Behavioral Surveillance System of 2017 to Census Small Area Income and Poverty Estimates (SAIPE) of income and poverty statistics for all school districts, counties, and states with the ability to focus on the number of children ages 5 to 17, and the number of related children ages 5 to 17 in families in poverty estimates for school districts in 2017 in order to view observable relationship. 
+This goes hand and hand with the Obama school nutrituion policy estashblished in 2010. This evidence was clear that correlation of nutrtion standards and lower income areas were signically lowered. This dataset illuminates why the Hunger-Free Kids Act was nessasaty to change childerns health for the better. 
 - What problem does it solve?
 This database provides access to school district data that has estimates of youth in poverty count by state for a random sample of 100 districts in the US. Additionally, this database includes data that has the 2017 Obesity risk rate by state, race, grade, and gender for youth aged 5-17. This database has the appropriate data needed to observe the school districts that have the most youth in poverty by count and the risk rate for obesity for youths in 2017 by state. 
 - What did you learn?
-We learned that the Census API is accessible for all for free and the Youth Behavioral Surveillance System is accessible to the public by the CDC. 
+We learned that the Census API is accessible for all for free and the Youth Behavioral Surveillance System is accessible to the public by the CDC.  
 
 
 ## Table of Contents (Optional)
